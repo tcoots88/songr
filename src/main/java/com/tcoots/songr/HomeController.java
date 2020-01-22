@@ -1,11 +1,15 @@
 package com.tcoots.songr;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class HomeController {
+
+    @Autowired
+    AlbumRepository albumRepository;
 
     @GetMapping("/")
     public String getRoot(Model m) {
@@ -20,6 +24,28 @@ public class HomeController {
         m.addAttribute("albumArray", albums);
         return "albums";
     }
+//Should direct to page showing all albums
+    @GetMapping("allAlbums")
+    public String getAllAlbums(Model m) {
+        Iterable<Album> albums = albumRepository.findAll();
+        m.addAttribute("albums",albums);
+        return "albums";
+    }
+
+    @GetMapping("newAlbum")
+    public String albumForm(Model m){
+        m.addAttribute("album", new Album());
+        return "newAlbum";
+    }
+
+    @PostMapping("newAlbum")
+    public String albumNew(@ModelAttribute("album") Album album) {
+        albumRepository.save(album);
+        return "newAlbum";
+    }
+
+
+
 }
 
 

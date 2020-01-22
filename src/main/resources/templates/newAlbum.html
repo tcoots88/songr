@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New Album</title>
+</head>
+<body>
+<form action="/newAlbum" method="post">
+    <fieldset>
+    <legend>Enter New Album Information</legend>
+            <p>Title: <input type="text" th:field="*{albumName}" /></p>
+            <p>Artist: <input type="text" th:field="*{artistName}" /></p>
+            <p>Number of Songs in Album: <input type="number" th:field="*{songCount}" /></p>
+            <p>Length of Album in seconds: <input type="number" th:field="*{length}" /></p>
+            <p>Link to image for Album Cover: <input type="text" th:field="*{imageUrl}" /></p>
+            <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+
+    </fieldset>
+</form>
+
+</body>
+</html>
+
+<!--public Album(String albumName, String artistName, int songCount, long length, String imageUrl) {
+        this.albumName = albumName;
+        this.artistName = artistName;
+        this.songCount = songCount;
+        this.length = length;
+        this.imageUrl = imageUrl;-->
