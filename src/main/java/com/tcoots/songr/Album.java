@@ -1,6 +1,7 @@
 package com.tcoots.songr;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Album {
@@ -13,6 +14,11 @@ public class Album {
     private long length;
     private String imageUrl;
 
+    @OneToMany(mappedBy = "album")
+    List<Song> songs;
+
+
+
     public Album(String albumName, String artistName, int songCount, long length, String imageUrl) {
         this.albumName = albumName;
         this.artistName = artistName;
@@ -22,6 +28,8 @@ public class Album {
     }
 
     public Album(){}
+
+
 
     public String getAlbumName(){
         return albumName;
@@ -60,5 +68,8 @@ public class Album {
 
     public long getId() {
         return id;
+    }
+    public List<Song> getSongs() {
+        return songs;
     }
 }

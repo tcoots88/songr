@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>New Album</title>
 </head>
 <body>
-<form action="/newAlbum" method="post">
+<form action="#" th:action="${/newAlbum}" th:object="${album}" method="post" modelAttribute="album">
     <fieldset>
     <legend>Enter New Album Information</legend>
             <p>Title: <input type="text" th:field="*{albumName}" /></p>
@@ -20,10 +20,3 @@
 
 </body>
 </html>
-
-<!--public Album(String albumName, String artistName, int songCount, long length, String imageUrl) {
-        this.albumName = albumName;
-        this.artistName = artistName;
-        this.songCount = songCount;
-        this.length = length;
-        this.imageUrl = imageUrl;-->
