@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New Song Form</title>
+</head>
+<body>
+<h1>New Song Form</h1>
+<form action="/songs/new" method="post" modelAttribute="song">
+    <fieldset>
+        <legend>Enter New Song Information</legend>
+        <p>Title: <input type="text" name="title" /></p>
+        <p>Album: <input type="text" name="album"/></p>
+        <p>Track Number in Album: <input type="number" name="trackNumber" /></p>
+        <p>Length of Album in seconds: <input type="number" name="length" /></p>
+        <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+
+    </fieldset>
+</form>
+
+</body>
+</html>
